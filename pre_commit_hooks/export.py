@@ -32,7 +32,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         action="store",
         help="Directory which includes the pyproject.toml file.",
     )
-    parser.add_argument("filename", help="Filename to check.")
+    parser.add_argument("filename", nargs='+', help="Filename to check.")
     args = parser.parse_args(argv)
 
     poetry = Factory().create_poetry(os.getcwd())
