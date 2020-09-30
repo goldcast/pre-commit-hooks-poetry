@@ -37,7 +37,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     poetry = Factory().create_poetry(os.getcwd())
     exporter = Exporter(poetry)
-    with open(os.path.join(args.project_directory, "requirements.txt", "w")) as req:
+    if not args.project_directory:
+        output_file = "requirements.txt"
+    else:
+        output_file = os.path.join(args.project_directory, "requirements.txt")
+    with open(output_file, "w") as req:
         exporter.export(
             fmt="requirements.txt",
             cwd=args.project_directory,
