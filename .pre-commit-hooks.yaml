@@ -4,5 +4,5 @@
   entry: poetry-export
   language: python
   types: [text]
-  files: ^requirements\.txt$
+  files: ^poetry\.lock$
   additional_dependencies: [poetry]
